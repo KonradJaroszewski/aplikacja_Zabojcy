@@ -1,0 +1,8 @@
+<nav class="navbar navbar-light">
+    <ul>
+        <li class="navbar-brand" routerLink="/"> Your Zbójcy</li>
+        <li *ngIf="authService.isLoggedIn()" class="login">Zalogowany : {{userDisplayLogin}}</li>
+        <li *ngIf="authService.isLoggedIn()" style="float:right" (click)="logout();">Wylogowanie</li>
+    </ul>
+</nav>
+
