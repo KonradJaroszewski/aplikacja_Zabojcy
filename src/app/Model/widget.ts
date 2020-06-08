@@ -1,4 +1,4 @@
-export  class widget{
+export  class widget {
     position: {
         top: number,
         left: number,
@@ -7,4 +7,5 @@ export  class widget{
     };
     type: number;
     options: {title: string };
+    checked: boolean;
 }
