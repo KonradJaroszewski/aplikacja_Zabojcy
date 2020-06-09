@@ -40,7 +40,7 @@ export class DashboardComponent implements OnInit {
       }
 
     getWidgets() {
-    this.dashboardService.getWidget(+this.authService.userId).subscribe(
+    this.dashboardService.getWidget(Number(this.authService.userId)).subscribe(
       widget => {
         this.widget = widget;
 
