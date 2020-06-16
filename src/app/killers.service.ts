@@ -12,8 +12,8 @@ export class KillersService {
 
   constructor(private http: HttpClient) { }
 
-  public getKillers(): Observable<any> {
-    return this.http.get(`${config.apiUrl}/api/killers/list`);
+  public getKillers(): Observable<killers[]> {
+    return this.http.get<killers[]>(`${config.apiUrl}/api/killers/list`);
   }
   public addKiller(killer: killers): Observable<boolean> {
      return this.http.post<string>(`${config.apiUrl}/killers/add`, killer).pipe(
@@ -42,7 +42,16 @@ export class KillersService {
       })
     );
   }
-  public cancleTask(targetId: number): Observable<boolean> {
+  public setTarget(targetRequestBody: {killerId: number; targetId: number}): Observable<boolean> {
+    return this.http.post<string>(`${config.apiUrl}/killers/set-target`, targetRequestBody).pipe(
+      mapTo(true),
+      catchError(error => {
+        alert(error.error);
+        return of(false);
+        }
+      ));
+  }
+  public cancelTarget(targetId: number): Observable<boolean> {
     return this.http.delete<string>(`${config.apiUrl}/killers/cancel-task/${targetId}`).pipe(
       mapTo(true),
       catchError( error => {

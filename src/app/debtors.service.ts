@@ -12,8 +12,8 @@ export class DebtorsService {
 
   constructor(private http: HttpClient) { }
 
-getDebtors(): Observable<any> {
-  return this.http.get(`${config.apiUrl}/api/debtors/list`);
+getDebtors(): Observable<debtors[]> {
+  return this.http.get<debtors[]>(`${config.apiUrl}/api/debtors/list`);
 
 }
 public addDebtor(debtor: debtors): Observable<boolean> {
@@ -26,7 +26,7 @@ public addDebtor(debtor: debtors): Observable<boolean> {
     );
 }
 public updateDebtor(id: number, debtor: debtors): Observable<boolean> {
-    return this.http.put<string>(`${config.apiUrl}/debotrs/edit/${id}`, debtor).pipe(
+    return this.http.put<string>(`${config.apiUrl}/debtors/edit/${id}`, debtor).pipe(
       mapTo(true),
         catchError( error => {
           alert(error.error);
@@ -34,7 +34,7 @@ public updateDebtor(id: number, debtor: debtors): Observable<boolean> {
         }));
 }
 public deleteDebtor(id: number ): Observable<boolean> {
-    return this.http.delete<string>(`${config.apiUrl}/debtors/remove/${id} `).pipe(
+    return this.http.delete<string>(`${config.apiUrl}/debtors/remove/${id}`).pipe(
       mapTo(true),
       catchError(error => {
         alert (error.error);
@@ -42,8 +42,8 @@ public deleteDebtor(id: number ): Observable<boolean> {
       })
     );
 }
-public cancleTask(id: number): Observable<boolean> {
-    return this.http.delete<string>(`${config.apiUrl}/debots/cancle-task/${id}` ).pipe(
+public cancelTask(id: number): Observable<boolean> {
+    return this.http.delete<string>(`${config.apiUrl}/debtors/cancel-task/${id}` ).pipe(
       mapTo(true),
       catchError(error => {
         alert(error.error);

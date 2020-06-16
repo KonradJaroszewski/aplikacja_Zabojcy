@@ -4,7 +4,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {widget} from './Model/widget';
 import { Observable, of } from 'rxjs';
 import {mapTo, switchMap, catchError, map} from 'rxjs/operators';
-interface dasboardResposne {
+interface DashboardResponse {
   widgets: string;
 }
 @Injectable({
@@ -17,7 +17,7 @@ export class DashboardService {
   constructor(private http: HttpClient) { }
 
   public getWidget(userId: number): Observable<widget[]> {
-    return this.http.get<dasboardResposne>(`${config.apiUrl}/api/dashboard/get/${userId}`).pipe(
+    return this.http.get<DashboardResponse>(`${config.apiUrl}/api/dashboard/get/${userId}`).pipe(
       map(value => JSON.parse(value.widgets)),
       catchError(error => {
         this.handleError(error);
