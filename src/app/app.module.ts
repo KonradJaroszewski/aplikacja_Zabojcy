@@ -10,6 +10,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {TokenInterceptorService} from './auth/token-interceptor.service';
 import {NgxWidgetGridModule} from 'ngx-widget-grid';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import {NgxWidgetGridModule} from 'ngx-widget-grid';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxWidgetGridModule
+    NgxWidgetGridModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule
   ],
   providers: [
     {

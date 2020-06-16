@@ -1,56 +1,31 @@
-
-
-<div class="dashboard-conteiner">
-<ngx-widget-grid [rows]="100" [columns]="100" [showGrid]="true">
-    <ngx-widget *ngFor="let widget of widget">
-
-            <div *ngIf ="widget.type== 0">
-                <div> {{widget.options.title}}</div>
-                <table class="table table-striped table-bordered">
-                    <thead>
-                        <tr>
-                            <th>id</th>
-                            <th>name</th>
-                            <th>lastname</th>
-                            <th>debt</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let debtor of debtors">
-                            <td>{{debtor.id}}</td>
-                            <td>{{debtor.name}}</td>
-                            <td>{{debtor.lastname}}</td>
-                            <td>{{debtor.debt}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!-- <div *ngIf="widget.type==1">
-                <div> {{widget.options.title}}</div>
-                <table class="table table-striped table-bordered">
-                    <thead>
-                      <tr>
-                        <th>id</th>
-                        <th>pseudonym</th>
-                        <th>salary</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let killer of killers">
-                            <td>{{killer.id}}</td>
-                            <td>{{killer.pseudonym}}</td>
-                            <td>{{killer.salary}}</td>
-                        </tr>
-                    </tbody>
-
-                </table>
-            </div> -->
-      <div *ngIf="widget.type==2">
-        <div> {{widget.options.title}}</div>
-      <div id="map" class="map"></div>
-      </div>
-        </ngx-widget>
-</ngx-widget-grid>
-
-
+<div>
+  <button mat-raised-button *ngIf="!isEditing; else editing" (click)="edit()">Spersonalizuj swój pulpit</button>
+  <ng-template #editing>
+    <span>
+      <button mat-raised-button (click)="confirm()">Potwierdz</button>
+      <button mat-raised-button (click)="cancel()">Odrzuć</button>
+    </span>
+    <section>
+      <mat-checkbox *ngFor="let widget of widget" [checked]="widget.checked"
+                    (change)="checkUncheck(widget, $event)">{{widget.options.title}}</mat-checkbox>
+    </section>
+  </ng-template>
 </div>
+<ngx-widget-grid [rows]="100" [columns]="100" [showGrid]="true">
+  <span *ngFor="let widget of widget">
+    <ngx-widget *ngIf="isVisible(widget)" [(position)]="widget.position" [movable]="isEditing" [resizable]="isEditing">
+      <div *ngIf="widget.type == 0">
+        <nav>debtors</nav>
+       <!-- <app-debtor-list (selectedDebtor)="debtorLocation($event)"></app-debtor-list>-->
+      </div>
+      <div *ngIf="widget.type == 1">
+        <nav>killers</nav>
+       <!-- <app-killers-list (selectedKiller)="killerLocation($event)"></app-killers-list>-->
+      </div>
+      <div *ngIf="widget.type == 2">
+        <nav>Map</nav>
+        <!--<app-map [killer]="killers" [debtor]="debtors" [selectedKiller]="selectedKiller" [selectedDebtor]="selectedDebtors"></app-map>-->
+      </div>
+    </ngx-widget>
+  </span>
+</ngx-widget-grid>
