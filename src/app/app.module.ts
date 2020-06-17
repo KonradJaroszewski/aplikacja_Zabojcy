@@ -13,6 +13,16 @@ import {NgxWidgetGridModule} from 'ngx-widget-grid';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { DebtorListComponent } from './debtor/debtor-list/debtor-list.component';
+import { KillerListComponent } from './killer/killer-list/killer-list.component';
+import { DialogAddDebtorComponent } from './debtor/dialog-add-debtor/dialog-add-debtor.component';
+import { DialogEditDebtorComponent } from './debtor/dialog-edit-debtor/dialog-edit-debtor.component';
+import { DialogForgiveComponent } from './debtor/dialog-forgive/dialog-forgive.component';
+import { DialogMapDebtorComponent } from './debtor/dialog-map-debtor/dialog-map-debtor.component';
+import { DialogAddKillerComponent } from './killer/dialog-add-killer/dialog-add-killer.component';
+import { DialogEditKillerComponent } from './killer/dialog-edit-killer/dialog-edit-killer.component';
+import { DialogMapKillerComponent } from './killer/dialog-map-killer/dialog-map-killer.component';
+import { DialogOrderComponent } from './killer/dialog-order/dialog-order.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +30,16 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     HeaderComponent,
     LoginComponent,
     DashboardComponent,
+    DebtorListComponent,
+    KillerListComponent,
+    DialogAddDebtorComponent,
+    DialogEditDebtorComponent,
+    DialogForgiveComponent,
+    DialogMapDebtorComponent,
+    DialogAddKillerComponent,
+    DialogEditKillerComponent,
+    DialogMapKillerComponent,
+    DialogOrderComponent,
 
   ],
   imports: [

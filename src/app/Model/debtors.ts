@@ -1,6 +1,6 @@
 export class debtors{
     id: number;
-    name:string;
+    name: string;
     lastname: string;
     age: number;
     debt: number;
