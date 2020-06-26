@@ -23,6 +23,11 @@ import { DialogAddKillerComponent } from './killer/dialog-add-killer/dialog-add-
 import { DialogEditKillerComponent } from './killer/dialog-edit-killer/dialog-edit-killer.component';
 import { DialogMapKillerComponent } from './killer/dialog-map-killer/dialog-map-killer.component';
 import { DialogOrderComponent } from './killer/dialog-order/dialog-order.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -51,7 +56,12 @@ import { DialogOrderComponent } from './killer/dialog-order/dialog-order.compone
     NgxWidgetGridModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule,
+    MatTableModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     {
