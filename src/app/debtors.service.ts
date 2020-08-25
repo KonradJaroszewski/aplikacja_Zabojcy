@@ -13,7 +13,7 @@ export class DebtorsService {
   constructor(private http: HttpClient) { }
 
 getDebtors(): Observable<debtors[]> {
-  return this.http.get<debtors[]>(`${config.apiUrl}/api/debtors/list`);
+  return this.http.get<debtors[]>(`${config.apiUrl}/debtors/list`);
 
 }
 public addDebtor(debtor: debtors): Observable<boolean> {

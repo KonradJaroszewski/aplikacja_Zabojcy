@@ -20,7 +20,7 @@ export class AuthService {
     constructor(private http: HttpClient) {}
 
     logIn(user: {login: string, password: string}): Observable<boolean> {
-        return this.http.post<any>(`${config.apiUrl}/api/user/login`, user)
+        return this.http.post<any>(`${config.apiUrl}/user/login`, user)
         .pipe(
             tap(tokens => this.storeTokens(tokens)),
             mapTo(true),
@@ -35,7 +35,7 @@ export class AuthService {
             id: localStorage.getItem(this.ID),
             login: localStorage.getItem(this.LOGIN)
         };
-        return this.http.put<any>(`${config.apiUrl}/api/user/logout`, loggedUser)
+        return this.http.put<any>(`${config.apiUrl}/user/logout`, loggedUser)
         .pipe(
             tap(() => this.removeTokens()),
             mapTo(true),

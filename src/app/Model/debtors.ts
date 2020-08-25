@@ -1,4 +1,4 @@
-export class debtors{
+export class debtors {
     id: number;
     name: string;
     lastname: string;

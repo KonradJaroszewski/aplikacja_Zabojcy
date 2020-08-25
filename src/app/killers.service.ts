@@ -13,7 +13,7 @@ export class KillersService {
   constructor(private http: HttpClient) { }
 
   public getKillers(): Observable<killers[]> {
-    return this.http.get<killers[]>(`${config.apiUrl}/api/killers/list`);
+    return this.http.get<killers[]>(`${config.apiUrl}/killers/list`);
   }
   public addKiller(killer: killers): Observable<boolean> {
      return this.http.post<string>(`${config.apiUrl}/killers/add`, killer).pipe(

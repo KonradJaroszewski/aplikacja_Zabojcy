@@ -13,17 +13,17 @@
   <span *ngFor="let widget of widget">
     <ngx-widget *ngIf="isVisible(widget)" [(position)]="widget.position" [movable]="isEditing" [resizable]="isEditing">
       <div *ngIf="widget.type == 0">
-        <nav>debtors</nav>
+        <!--<nav>debtors</nav>-->
         <app-debtor-list (selectedDebtor)="debtorLocation($event)"></app-debtor-list>
       </div>
-      <!--<div *ngIf="widget.type == 1">
-        <nav>killers</nav>
-        <app-killers-list (selectedKiller)="killerLocation($event)"></app-killers-list>
-      </div>
-      <div *ngIf="widget.type == 2">
-        <nav>Map</nav>
-        <app-map [killer]="killers" [debtor]="debtors" [selectedKiller]="selectedKiller" [selectedDebtor]="selectedDebtors"></app-map>
-      </div>-->
+<!--      <div *ngIf="widget.type == 1">-->
+<!--        <nav>killers</nav>-->
+<!--        <app-killers-list (selectedKiller)="killerLocation($event)"></app-killers-list>-->
+<!--      </div>-->
+<!--      <div *ngIf="widget.type == 2">-->
+<!--        <nav>Map</nav>-->
+<!--        <app-map [killer]="killers" [debtor]="debtors" [selectedKiller]="selectedKiller" [selectedDebtor]="selectedDebtors"></app-map>-->
+<!--      </div>-->
     </ngx-widget>
   </span>
 </ngx-widget-grid>
