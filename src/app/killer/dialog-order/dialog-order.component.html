@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Select debtor</h1>
+<div>
+  <mat-form-field>
+    <mat-select [disabled]="killer.targetId != null" [(value)]="selectedDebtorId" >
+      <mat-option *ngFor="let debtor of debtor | async" [value]="debtor.id">
+        {{debtor.name}} {{debtor.lastname}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div mat-dialog-actions>
+    <button mat-button *ngIf="killer.targetId == null; else cancel" (click)="setTarget(killer.id, selectedDebtorId)">Set target</button>
+    <ng-template #cancel>
+      <p>Target already exists</p>
+      <button mat-button (click)="cancelTarget(killer.targetId)">Cancel target</button>
+    </ng-template>
+    <button mat-button (click)="onNoClick()">Close</button>
+  </div>
+</div>
